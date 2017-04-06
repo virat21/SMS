@@ -1,0 +1,98 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="SMS.Site1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
+</head>
+<body>
+    <div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-8" style="font-size: 50px;">
+                    SMS
+				</div>
+				<div class="col-md-4">
+                    <img src="img/Logo.jpg" width="70px" style="float: right;" />
+				</div>
+			</div>
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header">
+
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						 <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+					</button> 
+				</div>
+
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="#">Login</a>
+						</li>
+						<li>
+							<a href="#">Registration</a>
+						</li>
+
+					</ul>
+
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+
+
+
+                            <% if(Session["roll"] != null){ %>
+                                                        <div class="btn-group" style="margin: 8px;">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a href="/Welcome.aspx">Roll No.<%: Session["roll"] %></a> <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu">
+    <li><a href="#">Logout</a></li>
+
+  </ul>
+</div>
+							
+                            <% } %>
+						</li>
+
+					</ul>
+				</div>
+
+			</nav>
+		</div>
+	</div>
+	<div class="row">
+        
+		<div class="col-md-12">
+    <form id="form1" class="form-horizontal" runat="server">
+        
+    <div class="container">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+            </div>
+	</div>
+	<footer class="footer">
+        <div class="row">
+		<div class="col-md-8">
+			<a href="#">Login</a> | 
+            <a href="#">Registration</a>
+		</div>
+		<div class="col-md-4">
+			 <span class="label label-default">© 2017 | SMS team</span>
+		</div>
+            </div>
+	</footer>
+</div>
+
+
+    <script src="js/jquery.min.js" ></script>
+    <script src="js/bootstrap.min.js" ></script>
+</body>
+</html>
